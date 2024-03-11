@@ -116,7 +116,7 @@ const ListVisual: React.FC = () => {
                 {totalPages > 1 && (
                     <div className="flex w-full justify-between md:justify-end px-6 md:pr-6 md:mt-4 md:mb-0 mb-16">
                         <button
-                            className={`bg-blue-500 flex items-center text-white font-bold rounded-full py-4 px-4 rounded ${currentPage === 0 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
+                            className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === 0 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
                             onClick={handleClickPrev}
                             disabled={currentPage === 0}
                         >
@@ -126,7 +126,7 @@ const ListVisual: React.FC = () => {
                             <p className='md:inline hidden'>Page</p> {currentPage + 1} of {totalPages}
                         </span>
                         <button
-                            className={`bg-blue-500 flex items-center text-white font-bold rounded-full py-4 px-4 rounded ${currentPage === totalPages - 1 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
+                            className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === totalPages - 1 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
                             onClick={handleClickNext}
                             disabled={currentPage === totalPages - 1}
                         >
