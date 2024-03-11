@@ -53,7 +53,7 @@ const Homepage: React.FC = () => {
   }
 
   return (
-    <div className='relative min-h-screen overflow-x-hidden bg-slate-800 md:bg-[#0d1117] md:pl-10'>
+    <div className='relative min-h-screen w-screen overflow-x-hidden bg-slate-800 md:bg-[#0d1117] md:pl-[70px]'>
         
         <div className={`fixed ${activeSidebar ? 'left-0' : 'left-[-100%]'} duration-200 top- w-[80vw] mt-14 z-[44444] md:hidden overflow-hidden h-screen bg-white px-3 py-12 border-r-[2px] border-white`}>
           <ul className='w-full flex flex-col'>
@@ -82,7 +82,7 @@ const Homepage: React.FC = () => {
           </div>
         </div>
 
-        <div className={`fixed left-0 top-0 md:inline hidden z-[99999999999] py-[20px] w-[100vw] h-max before:md:absolute before:md:left-[62px] before:md:top-[25px] before:md:bottom-[-5px] before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full ${scrolled ? 'bg-[#0d1117]' : 'bg-transparent'}`}>
+        <div className={`fixed left-0 top-0 md:inline hidden z-[99999999999] py-[20px] w-[100vw] h-max before:md:absolute before:md:left-[43px] before:md:top-[25px] before:md:bottom-[-5px] before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full ${scrolled ? 'bg-[#0d1117]' : 'bg-transparent'}`}>
           <div className='w-full text-slate-300 py-5 hidden md:flex md:pl-[150px] h-[60px]'>
             <ul className='w-max flex items-center justify-between'>
               <a href="#home">
@@ -107,7 +107,7 @@ const Homepage: React.FC = () => {
         <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-600 blur-[220px] rounded-full fixed z-[999999999999] top-[0px] left-0'></div>
         {/* Akhir Blur light */}
        
-        <div className='relative z-[4444] pl-6 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] md:ml-12 mt-[120px] md:mt-[90px] md:pt-16 border-white'>
+        <div id='home' className='relative z-[4444] pl-6 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] mt-[120px] md:mt-[90px] md:pt-16 border-white'>
           
           <img src={Chart1} alt="3D" className='absolute hidden md:inline opacity-[0.3] z-[1] top-[-130px] right-[0px] scale-[0.7]' />
           <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[1] z-[1] top-[-100px] right-[50px] scale-[0.4]' />
@@ -133,7 +133,7 @@ const Homepage: React.FC = () => {
 
         <div className='mb-5 md:hidden mt-1 border-t-[2px] border-dashed w-screen h-[2px] border-white' />
         
-        <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[180px] w-[100%] h-max md:border-l-[3px] md:ml-12 border-white'>
+        <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[180px] w-[100%] h-max md:border-l-[3px] border-white'>
           <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
               Informasi sekilas

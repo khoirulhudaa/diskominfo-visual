@@ -44,7 +44,7 @@ const ListVisual: React.FC = () => {
     }, [])
 
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 2;
+    const itemsPerPage = 14;
 
     const filteredData = dataVisual?.filter((data: any) => {
         if (search && search !== '') {
@@ -68,14 +68,14 @@ const ListVisual: React.FC = () => {
     };
 
   return (
-    <div id='daftar' className='relative flex flex-col z-[4444] pt-[20px] md:pt-[80px] pb-[0px] w-[100%] h-max md:border-l-[3px] md:ml-12 border-white'>
+    <div id='daftar' className='relative flex flex-col z-[4444] pt-[20px] md:pt-[80px] pb-[0px] w-[100%] h-max md:border-l-[3px] border-white'>
         <img src={SquareLine} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-420px] scale-[0.5]' />
         <div className='relative z-[4444] pb-[0px] px-6 md:px-16 w-[100%] mt-[0px] top-[-45px] h-max'>
             <div data-aos='fade-up' className='w-max mb-3 border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
                 Informasi sekilas
             </div>
             <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-white md:text-blue-500 font-[500]'>Daftar diagram 📊</h3>
-            <h2 data-aos='fade-left' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
+            <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
         </div>
 
         <form className='md:ml-16 mt-2 md:mt-12 flex items-center'>
