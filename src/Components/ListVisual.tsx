@@ -74,11 +74,11 @@ const ListVisual: React.FC = () => {
             <div data-aos='fade-up' className='w-max mb-3 border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
                 Informasi sekilas
             </div>
-            <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-white md:text-blue-500 font-[500]'>Daftar diagram 📊</h3>
+            <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-white md:text-blue-500 font-[500]'>Daftar diagram <span className='md:inline hidden'>📊</span></h3>
             <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
         </div>
 
-        <form className='md:ml-16 mt-2 md:mt-12 flex items-center'>
+        <form className='md:ml-16 mt-[-20px] md:mt-12 flex items-center'>
             <input 
                 type="text" 
                 name='search' 
@@ -94,19 +94,19 @@ const ListVisual: React.FC = () => {
             </div>
         </form>
         
-        <div className='w-[100vw] md:w-[86vw] flex z-40 flex flex-wrap justify-between relative md:pl-12 mt-[60px] h-max'>
+        <div className='w-[100vw] bg-white py-8 md:w-[86vw] flex z-40 flex flex-wrap justify-between relative md:pl-12 mt-[60px] h-max'>
             {filteredData
                     ?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
                     ?.map((data: any, index: number) => (
-                        <div key={index} className='w-[88vw] mx-auto md:w-[47%] mb-8 md:mb-10 bg-transparent md:bg-slate-800 h-[max] px-5 py-4 md:p-8 border-[2px] border-white rounded-[20px]'>
+                        <div key={index} className='w-[88vw] mx-auto md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 py-4 md:p-8 border-[2px] border-slate-700 md:border-white rounded-[20px]'>
                         <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
-                            <h3 className='w-full md:w-[110%] text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
-                            <div className='w-[100%] h-[120px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
+                            <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
+                            <div className='w-[100%] h-[160px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
                                 <img src={data?.image} loading='lazy' alt="thumbnail" className='w-full h-auto rounded-[10px]' />
                             </div>
                             <div className='w-full flex flex-col mt-6 justify-between'>
                                 <Link target='__blank' to={data?.link}>
-                                    <h3 className='cursor-pointer rounded-[10px] text-[15px] md:text-[18px] w-max px-1 py-2 mb-4 bg-slate-800 md:bg-transparent hover:brightness-[90%] active:scale-[0.99] text-white md:text-blue-400 flex items-center'>Cek sekarang <FaArrowRight className='ml-4 relative top-[0.8]' /> </h3>
+                                    <h3 className='cursor-pointer rounded-[10px] text-[15px] md:text-[18px] w-max px-4 md:px-1 py-2 mb-4 bg-slate-800 md:bg-transparent hover:brightness-[90%] active:scale-[0.99] text-white md:text-blue-400 flex items-center'>Cek sekarang <FaArrowRight className='ml-4 relative top-[0.8]' /> </h3>
                                 </Link>
                                 <small className='max-w-full md:ml-1 overflow-hidden md:inline hidden overflow-ellipsis whitespace-nowrap'><b>Uploader</b> : {data?.uploader}</small>
                             </div>

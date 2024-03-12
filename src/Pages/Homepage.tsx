@@ -58,16 +58,16 @@ const Homepage: React.FC = () => {
         <div className={`fixed ${activeSidebar ? 'left-0' : 'left-[-100%]'} duration-200 top- w-[80vw] mt-14 z-[44444] md:hidden overflow-hidden h-screen bg-white px-3 py-12 border-r-[2px] border-white`}>
           <ul className='w-full flex flex-col'>
               <a href="#home" onClick={() => handleSelectSidebar()}>
-                <li className='mb-12 border-b border-slate-700 pb-2 w-[80%] hover:text-blue-400 cursor-pointer'>Halaman utama</li>
+                <li className='border-b border-slate-700 pb-8 w-[100%] hover:text-blue-400 cursor-pointer'>Halaman utama</li>
               </a>
               <a href="#daftar" onClick={() => handleSelectSidebar()}>
-                <li className='mb-12 border-b border-slate-700 pb-2 w-[80%] hover:text-blue-400 cursor-pointer'>Daftar diagram</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Daftar diagram</li>
               </a>
               <a href="#opendata" onClick={() => handleSelectSidebar()}>
-                <li className='mb-12 border-b border-slate-700 pb-2 w-[80%] hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
               </a>
               <a href="#footer" onClick={() => handleSelectSidebar()}>
-                <li className='mb-12 border-b border-slate-700 pb-2 w-[80%] hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
               </a>
             </ul>  
         </div>
@@ -131,19 +131,19 @@ const Homepage: React.FC = () => {
         
         <ListVisual />
 
-        <div className='mb-5 md:hidden mt-1 border-t-[2px] border-dashed w-screen h-[2px] border-white' />
+        <div className='mb-5 md:hidden mt-6 border-t-[2px] border-dashed w-screen h-[2px] border-white' />
         
         <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[180px] w-[100%] h-max md:border-l-[3px] border-white'>
           <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
               Informasi sekilas
             </div>
-            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[30px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
+            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
           </div>
           <img src={Square3} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-450px] scale-[0.5]' />
-          <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 relative md:left-[-37px] mt-[-30px] overflow-hidden bg-slate-800 md:mt-8 rounded-[12px] border border-slate-200 h-max'>
-            <img src={OpenData} alt="open-data-image" loading='lazy' />
+          <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 bg-cover relative bg-blue-600 md:left-[-37px] mt-[-30px] overflow-hidden md:mt-8 rounded-[12px] border border-slate-200 h-[200px] md:h-max'>
+            <img src={OpenData} alt="open-data-image" className='h-full w-auto' loading='lazy' />
           </div>
         </div>
 
