@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Chart1, Chart2, Chart3, Chart4, Diskominfo, OpenData, Square, Square3 } from '../Assets'
+import { Chart1, Chart2, Chart3, Chart4, Diskominfo, Geo, OpenData, Square, Square3 } from '../Assets'
 import ListVisual from '../Components/ListVisual'
 import '../index.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { FaInstagram, FaPhoneAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'
 
 const Homepage: React.FC = () => {
+
+  const navigate = useNavigate()
 
   AOS.init({
     // Global settings:
@@ -133,10 +137,11 @@ const Homepage: React.FC = () => {
 
         <div className='mb-5 md:hidden mt-6 border-t-[2px] border-dashed w-screen h-[2px] border-white' />
         
-        <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[180px] w-[100%] h-max md:border-l-[3px] border-white'>
+        {/* https://opendata.cirebonkab.go.id/ */}
+        <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[160px] w-[100%] h-max md:border-l-[3px] border-white'>
           <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
-              Informasi sekilas
+              Informasi pendataan
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
@@ -146,11 +151,38 @@ const Homepage: React.FC = () => {
             <img src={OpenData} alt="open-data-image" className='h-full w-auto' loading='lazy' />
           </div>
         </div>
+        
+        {/* http://cirebonkota.ina-sdi.or.id/ */}
+        <div id='geoportal' className='relative flex flex-col z-[4444] pt-[170px] md:pt-[230px] w-[100%] h-max md:border-l-[3px] border-white'>
+          <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
+            <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
+              Informasi geospasial
+            </div>
+            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Informasi geospasial dalam bentuk GIS 🗺️</h3>
+            <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
+          </div>
+          <img src={Square3} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-450px] scale-[0.5]' />
+          <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 bg-cover relative bg-blue-600 md:left-[-37px] mt-[-30px] overflow-hidden md:mt-8 rounded-[12px] border border-slate-200 h-[200px] md:h-max'>
+            <img src={Geo} alt="open-data-image" className='h-full w-auto' loading='lazy' />
+          </div>
+        </div>
 
-        <footer id='footer' className='relative w-full text-white py-16 md:px-16 before:md:absolute before:md:left-[18px] before:md:mt-2 before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full'>
+        <footer id='footer' className='relative w-full text-white pt-16 md:px-16 before:md:absolute before:md:left-[18px] before:md:mt-2 before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full'>
           <div className='md:ml-12' data-aos='fade-left' data-aos-duration="1000">
             <p className='text-[14px] md:text-[16px] ml-6 w-[90vw] md:w-[80%] leading-loose'>Situs website yang menyediakan pelayanan informasi terkait data seputar wilayah kabupaten Cirebon secara visualisasi berubah diagram/chart yang mudah dibaca.</p>
-            <p className='rounded-full text-black mt-8 text-[14px] ml-6 md:ml-0 md:text-[18px] px-4 py-1 text-center bg-gradient-to-r from-white via-slate-400 to-white w-max'>2024 at Diskominfo Kabupaten Cirebon</p>
+            <div className='flex items-center mt-8'>
+              <p className='rounded-full text-black hidden md:inline text-[14px] ml-6 md:ml-7 md:text-[18px] px-4 py-1 text-center bg-gradient-to-r from-white via-slate-400 to-white w-max'>2024 at Diskominfo Kabupaten Cirebon</p>
+              <div className='w-max h-[40px] px-5 flex text-black items-center ml-6 bg-gradient-to-r from-white via-slate-400 to-white rounded-full flex items-center justify-center cursor-pointer active:scale-[0.98] hover:brightness-[90%]'>
+                <FaPhoneAlt className='cursor-pointer' />
+                <p className='ml-3'>(0231) 8330580</p>
+              </div>
+              <div onClick={() => navigate('https://www.instagram.com/diskominfokabcirebon/')} className='w-[40px] ml-6 bg-slate-400 h-[40px] rounded-full flex items-center justify-center cursor-pointer active:scale-[0.98] hover:brightness-[90%]'>
+                <FaInstagram className='cursor-pointer' />
+              </div>
+            </div>
+            <div className='w-screen h-[54px] mt-12 md:hidden text-black px-7 flex items-center text-[14px] md:text-[18px] px-4 py-1 text-center bg-gradient-to-r from-white via-slate-400 to-white'>
+              2024 at Diskominfo Kabupaten Cirebon
+            </div>
           </div>
         </footer>
 

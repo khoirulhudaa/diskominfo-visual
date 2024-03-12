@@ -11,6 +11,7 @@ import Chart3 from './chart3.svg'
 import Chart4 from './chart4.svg'
 import OpenData from './opendata.svg'
 import Diskominfo from './dikominfo.png'
+import Geo from './geoportal.png'
 
 export {
     Circles,
@@ -25,5 +26,6 @@ export {
     Chart3,
     Chart4,
     OpenData,
-    Diskominfo
+    Diskominfo,
+    Geo
 }
