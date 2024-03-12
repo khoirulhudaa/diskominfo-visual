@@ -70,6 +70,9 @@ const Homepage: React.FC = () => {
               <a href="#opendata" onClick={() => handleSelectSidebar()}>
                 <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
               </a>
+              <a href="#geoportal" onClick={() => handleSelectSidebar()}>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Geoportal</li>
+              </a>
               <a href="#footer" onClick={() => handleSelectSidebar()}>
                 <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
               </a>
@@ -98,6 +101,9 @@ const Homepage: React.FC = () => {
               <a href="#opendata">
                 <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
               </a>
+              <a href="#geoportal">
+                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Geoportal</li>
+              </a>
               <a href="#footer">
                 <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
               </a>
@@ -113,19 +119,19 @@ const Homepage: React.FC = () => {
        
         <div id='home' className='relative z-[4444] pl-6 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] mt-[120px] md:mt-[90px] md:pt-16 border-white'>
           
-          <img src={Chart1} alt="3D" className='absolute hidden md:inline opacity-[0.3] z-[1] top-[-130px] right-[0px] scale-[0.7]' />
-          <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[1] z-[1] top-[-100px] right-[50px] scale-[0.4]' />
+          <img src={Chart1} alt="3D" className='absolute hidden md:inline opacity-[0.3] z-[1] top-[-130px] right-[-50px] scale-[0.7]' />
+          <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[1] z-[1] top-[-110px] right-[25px] scale-[0.4]' />
           <img src={Chart2} alt="3D" className='absolute hidden md:inline opacity-[0.9] z-[1] top-[80px] right-[-50px] scale-[0.4]' />
           <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[0.9] z-[1] bottom-[-100px] right-[150px] scale-[0.4]' />
-          <img src={Chart4} alt="3D" className='absolute hidden md:inline opacity-[0.3] z-[1] bottom-[-100px] right-[50px] scale-[0.4]' />
+          <img src={Chart4} alt="3D" className='absolute hidden md:inline opacity-[0.5] z-[1] bottom-[-100px] right-[-50px] scale-[0.4]' />
           
           <div className='absolute top-[-70px] right-0'>
             <img loading='lazy' src={Square} alt="square" className='absolute w-[100%] top-[0px] left-[-404px] rotate-[0deg]' />
             <img loading='lazy' src={Square} alt="square" className='w-[100%] rotate-[180deg]' />
           </div>
 
-          <p data-aos='fade-up' className='rounded-full border border-white text-center px-5 py-2 w-max text-white flex items-center'>Visualisasi 2024</p>
-          <h1 data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[84px] w-[90vw] md:w-[80%] font-normal leading-normal text-white'>Eksplorasi Cirebon Grafik dan Diagram</h1>
+          <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>Visualisasi 2024</p>
+          <h1 data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-white'>Open Data Cirebon  <span className='md:hidden inline'>2024</span> : <span className='md:flex hidden'>Visualisasi Data</span> <span className='md:hidden flex'>Data Visual</span></h1>
           <div data-aos='fade-up' data-aos-duration="2000" className='w-[80vw] md:w-max flex items-center overflow-hidden rounded-[20px]'>
             <button className='outline-0 border-white border-0 py-5 w-max rounded-[16px] px-12 md:px-28 h-max text-left font-normal bg-[#1976D2] my-7 text-white'>Cari data sekarang</button>
           </div>
@@ -137,7 +143,6 @@ const Homepage: React.FC = () => {
 
         <div className='mb-5 md:hidden mt-6 border-t-[2px] border-dashed w-screen h-[2px] border-white' />
         
-        {/* https://opendata.cirebonkab.go.id/ */}
         <div id='opendata' className='relative flex flex-col z-[4444] pt-[140px] md:pt-[160px] w-[100%] h-max md:border-l-[3px] border-white'>
           <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
@@ -145,14 +150,16 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
+            <div onClick={() => navigate('https://opendata.cirebonkab.go.id')} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+              Kunjungi sekarang 👉
+            </div>
           </div>
           <img src={Square3} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-450px] scale-[0.5]' />
-          <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 bg-cover relative bg-blue-600 md:left-[-37px] mt-[-30px] overflow-hidden md:mt-8 rounded-[12px] border border-slate-200 h-[200px] md:h-max'>
-            <img src={OpenData} alt="open-data-image" className='h-full w-auto' loading='lazy' />
+          <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 bg-cover relative bg-blue-800 md:left-[-37px] mt-[-30px] overflow-hidden md:mt-8 rounded-[12px] border border-slate-200 h-[200px] md:h-max'>
+            <img src={OpenData} alt="open-data-image" className='brightness-[80%] hover:brightness-[100%] duration-200 h-full w-auto' loading='lazy' />
           </div>
         </div>
         
-        {/* http://cirebonkota.ina-sdi.or.id/ */}
         <div id='geoportal' className='relative flex flex-col z-[4444] pt-[170px] md:pt-[230px] w-[100%] h-max md:border-l-[3px] border-white'>
           <div className='relative z-[4444] pb-[0px] pl-6 md:px-16 w-[100%] mt-[0px] top-[-75px] h-max'>
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
@@ -160,14 +167,17 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Informasi geospasial dalam bentuk GIS 🗺️</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
+            <div onClick={() => navigate('http://cirebonkota.ina-sdi.or.id')} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+              Kunjungi sekarang 👉
+            </div>
           </div>
           <img src={Square3} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-450px] scale-[0.5]' />
           <div className='w-[88vw] md:w-[92vw] mx-auto md:mx-0 z-40 bg-cover relative bg-blue-600 md:left-[-37px] mt-[-30px] overflow-hidden md:mt-8 rounded-[12px] border border-slate-200 h-[200px] md:h-max'>
-            <img src={Geo} alt="open-data-image" className='h-full w-auto' loading='lazy' />
+            <img src={Geo} alt="open-data-image" className='brightness-[80%] hover:brightness-[100%] duration-200 h-full w-auto' loading='lazy' />
           </div>
         </div>
 
-        <footer id='footer' className='relative w-full text-white pt-16 md:px-16 before:md:absolute before:md:left-[18px] before:md:mt-2 before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full'>
+        <footer id='footer' className='relative w-full text-white pt-16 md:pb-14 md:px-16 before:md:absolute before:md:left-[18px] before:md:mt-2 before:md:w-[54px] before:md:h-[54px] before:md:bg-[#1976D2] before:md:shadow-lg before:md:shadow-black before:md:content-["<>"] before:md:flex before:md:justify-center before:md:items-center before:md:text-white before:md:font-bold before:md:text-[24px] before:md:rounded-full'>
           <div className='md:ml-12' data-aos='fade-left' data-aos-duration="1000">
             <p className='text-[14px] md:text-[16px] ml-6 w-[90vw] md:w-[80%] leading-loose'>Situs website yang menyediakan pelayanan informasi terkait data seputar wilayah kabupaten Cirebon secara visualisasi berubah diagram/chart yang mudah dibaca.</p>
             <div className='flex items-center mt-8'>
@@ -180,7 +190,7 @@ const Homepage: React.FC = () => {
                 <FaInstagram className='cursor-pointer' />
               </div>
             </div>
-            <div className='w-screen h-[54px] mt-12 md:hidden text-black px-7 flex items-center text-[14px] md:text-[18px] px-4 py-1 text-center bg-gradient-to-r from-white via-slate-400 to-white'>
+            <div className='w-screen h-[54px] mt-20 md:hidden text-black px-7 flex items-center text-[14px] md:text-[18px] px-4 py-1 text-center bg-gradient-to-r from-white via-slate-400 to-white'>
               2024 at Diskominfo Kabupaten Cirebon
             </div>
           </div>
