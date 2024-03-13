@@ -20,7 +20,7 @@ const ListVisual: React.FC = () => {
                 const transformedArray = dataArray.map((item: any) => ({ label: item.dinas_name, value: item.dinas_name }));
                
                 // Add an object with label and value at the beginning of the array
-                transformedArray.unshift({ label: "Pilih jenis dinas", value: "", disabled: true  });
+                transformedArray.unshift({ label: "Semua dinas", value: "", disabled: true  });
                
                 return transformedArray;
             };
@@ -101,7 +101,7 @@ const ListVisual: React.FC = () => {
             <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
         </div>
 
-        <form className='md:ml-16 mt-[-20px] md:mt-12 flex items-center'>
+        <form className='md:ml-16 mt-[-20px] md:mt-12 md:flex items-center'>
             <input 
                 type="text" 
                 name='search' 
@@ -110,9 +110,9 @@ const ListVisual: React.FC = () => {
                 onChange={(e: any) => {
                     setSearch(e.target.value)
                 }} 
-                className='border-0 outline-0 px-3 py-4 w-[80vw] md:w-[50vw] rounded-[14px] ml-6 md:ml-0 left-0'
+                className='border-0 outline-0 px-3 ml-6 py-4 w-[87%] md:mx-0 mx-auto md:w-[50vw] rounded-[14px] left-0'
             />
-            <div className='w-max h-max px-3 py-4 z-[99999] rounded-[10px] bg-white ml-6'>
+            <div className='w-max h-max px-3 py-4 z-[99999] md:flex hidden rounded-[10px] bg-white ml-6'>
                 <select name="type_dinas" onChange={(e: any) => setType_dinas(e.target.value)} className='bg-transparent border-0 outline-0' id="type_dinas">
                     {
                         dinas.length > 0 ? (
@@ -127,6 +127,18 @@ const ListVisual: React.FC = () => {
         </form>
         
         <div className='w-[100vw] bg-white md:bg-transparent pb-6 pt-14 md:pt-1 md:w-[86vw] flex z-40 flex flex-wrap justify-between relative md:pl-12 mt-[60px] h-max'>
+            <div className='w-[90%] mx-auto h-max px-3 py-4 z-[99999] rounded-[10px] mb-8 border md:hidden border-slate-700 bg-white'>
+                <select name="type_dinas" onChange={(e: any) => setType_dinas(e.target.value)} className='bg-transparent border-0 outline-0 w-full' id="type_dinas">
+                    {
+                        dinas.length > 0 ? (
+                            dinas.map((data: any, index: number) => (
+                                <option key={index} value={data?.value}>{data?.label}</option>
+                            ))
+                        ):
+                            null
+                    }
+                </select>
+            </div>
             {
             filteredData?.length > 0 ? (
                 filteredData
@@ -140,10 +152,10 @@ const ListVisual: React.FC = () => {
                     })
                     ?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
                     ?.map((data: any, index: number) => (
-                        <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 pt-4 pb-5 md:p-8 border-[2px] border-slate-700 md:border-white rounded-[20px]'>
+                        <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 pt-4 pb-5 md:p-8 border-[1px] md:border-[2px] border-slate-700 md:border-white rounded-[20px]'>
                             <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
                                 <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
-                                <div className='w-[100%] h-[160px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
+                                <div className='w-[100%] h-[140px] md:h-[220px] rounded-[10px] bg-white border-[1px] md:border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
                                     <img src={data?.image} loading='lazy' alt="thumbnail" className='w-full h-auto rounded-[10px]' />
                                 </div>
                                 <div className='w-full flex flex-col mt-6 justify-between'>
