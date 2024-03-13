@@ -15,7 +15,19 @@ const ListVisual: React.FC = () => {
         (async () => {
             const response = await API.getAllDinas()
             console.log(response)
-            setDinas(response?.data?.data)
+            const transformData = (dataArray: any) => {
+                // Transform the data array into an array of new objects
+                const transformedArray = dataArray.map((item: any) => ({ label: item.dinas_name, value: item.dinas_name }));
+               
+                // Add an object with label and value at the beginning of the array
+                transformedArray.unshift({ label: "Pilih jenis dinas", value: "", disabled: true  });
+               
+                return transformedArray;
+            };
+               
+            // Use the function to transform the data
+            const newObjects = transformData(response?.data?.data);
+            setDinas(newObjects)
         })()
     }, [])
 
@@ -105,7 +117,7 @@ const ListVisual: React.FC = () => {
                     {
                         dinas.length > 0 ? (
                             dinas.map((data: any, index: number) => (
-                                <option key={index} value={data?.dinas_name}>{data?.dinas_name}</option>
+                                <option key={index} value={data?.value}>{data?.label}</option>
                             ))
                         ):
                             null
