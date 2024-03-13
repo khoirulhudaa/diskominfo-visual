@@ -150,7 +150,7 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
-            <div onClick={() => navigate('https://opendata.cirebonkab.go.id')} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+            <div onClick={() => window.location.href = 'https://opendata.cirebonkab.go.id'  } className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
               Kunjungi sekarang 👉
             </div>
           </div>
@@ -167,7 +167,7 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Informasi geospasial dalam bentuk GIS 🗺️</h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
-            <div onClick={() => navigate('http://cirebonkota.ina-sdi.or.id')} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+            <div onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
               Kunjungi sekarang 👉
             </div>
           </div>

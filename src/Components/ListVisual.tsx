@@ -96,7 +96,7 @@ const ListVisual: React.FC = () => {
         
         <div className='w-[100vw] bg-white md:bg-transparent pb-6 pt-14 md:pt-1 md:w-[86vw] flex z-40 flex flex-wrap justify-between relative md:pl-12 mt-[60px] h-max'>
             {
-            filteredData?.length === 0 ? (
+            filteredData?.length > 0 ? (
                 filteredData
                     ?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
                     ?.map((data: any, index: number) => (
