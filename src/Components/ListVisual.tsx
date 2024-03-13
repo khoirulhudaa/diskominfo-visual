@@ -95,45 +95,54 @@ const ListVisual: React.FC = () => {
         </form>
         
         <div className='w-[100vw] bg-white md:bg-transparent pb-6 pt-14 md:pt-1 md:w-[86vw] flex z-40 flex flex-wrap justify-between relative md:pl-12 mt-[60px] h-max'>
-            {filteredData
+            {
+            filteredData?.length === 0 ? (
+                filteredData
                     ?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
                     ?.map((data: any, index: number) => (
                         <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 py-4 md:p-8 border-[2px] border-slate-700 md:border-white rounded-[20px]'>
-                        <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
-                            <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
-                            <div className='w-[100%] h-[160px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
-                                <img src={data?.image} loading='lazy' alt="thumbnail" className='w-full h-auto rounded-[10px]' />
-                            </div>
-                            <div className='w-full flex flex-col mt-6 justify-between'>
-                                <Link target='__blank' to={data?.link}>
-                                    <h3 className='cursor-pointer rounded-[10px] text-[15px] md:text-[18px] w-max px-4 md:px-1 py-2 mb-4 bg-slate-800 md:bg-transparent hover:brightness-[90%] active:scale-[0.99] text-white md:text-blue-400 flex items-center'>Cek sekarang <FaArrowRight className='ml-4 relative top-[0.8]' /> </h3>
-                                </Link>
-                                <small className='max-w-full md:ml-1 overflow-hidden md:inline hidden overflow-ellipsis whitespace-nowrap'><b>Uploader</b> : {data?.uploader}</small>
+                            <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
+                                <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
+                                <div className='w-[100%] h-[160px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
+                                    <img src={data?.image} loading='lazy' alt="thumbnail" className='w-full h-auto rounded-[10px]' />
+                                </div>
+                                <div className='w-full flex flex-col mt-6 justify-between'>
+                                    <Link target='__blank' to={data?.link}>
+                                        <h3 className='cursor-pointer rounded-[10px] text-[15px] md:text-[18px] w-max px-4 md:px-1 py-2 mb-4 bg-slate-800 md:bg-transparent hover:brightness-[90%] active:scale-[0.99] text-white md:text-blue-400 flex items-center'>Cek sekarang <FaArrowRight className='ml-4 relative top-[0.8]' /> </h3>
+                                    </Link>
+                                    <small className='max-w-full md:ml-1 overflow-hidden md:inline hidden overflow-ellipsis whitespace-nowrap'><b>Uploader</b> : {data?.uploader}</small>
+                                </div>
                             </div>
                         </div>
+                    ))
+                ):
+                    <div className='w-[94%] md:w-screen h-[400px] mx-auto md:ml-4 tezt-black md:text-white flex items-center justify-center rounded-[20px] border-[2px] border-black md:border-white border-dashed mb-8'>
+                        <p>
+                            Data visual belum di upload
+                        </p>
                     </div>
-                ))}
-                {totalPages > 1 && (
-                    <div className="flex w-full justify-between md:justify-end px-6 md:pr-6 md:mt-4 md:mb-0 mb-16">
-                        <button
-                            className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === 0 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
-                            onClick={handleClickPrev}
-                            disabled={currentPage === 0}
-                        >
-                            <FaArrowLeft className='mr-3 cursor-pointer' />
-                        </button>
-                        <span className="text-white font-bold mx-4 flex items-center md:px-4">
-                            <p className='md:inline hidden'>Page</p> {currentPage + 1} of {totalPages}
-                        </span>
-                        <button
-                            className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === totalPages - 1 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
-                            onClick={handleClickNext}
-                            disabled={currentPage === totalPages - 1}
-                        >
-                            <FaArrowRight className='ml-3 cursor-pointer' />
-                        </button>
-                    </div>
-                )}
+            }
+            {totalPages > 1 && (
+                <div className="flex w-full justify-between md:justify-end px-6 md:pr-6 md:mt-4 md:mb-0 mb-16">
+                    <button
+                        className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === 0 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
+                        onClick={handleClickPrev}
+                        disabled={currentPage === 0}
+                    >
+                        <FaArrowLeft className='mr-3 cursor-pointer' />
+                    </button>
+                    <span className="text-white font-bold mx-4 flex items-center md:px-4">
+                        <p className='md:inline hidden'>Page</p> {currentPage + 1} of {totalPages}
+                    </span>
+                    <button
+                        className={`bg-blue-500 flex items-center text-white font-bold py-4 px-4 rounded ${currentPage === totalPages - 1 ? 'cursor-not-allowed opacity-50 bg-slate-500' : 'cursor-pointer hover:bg-blue-700'}`}
+                        onClick={handleClickNext}
+                        disabled={currentPage === totalPages - 1}
+                    >
+                        <FaArrowRight className='ml-3 cursor-pointer' />
+                    </button>
+                </div>
+            )}
         </div>
     </div>
   )
