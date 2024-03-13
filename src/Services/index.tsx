@@ -5,6 +5,11 @@ const API = {
     getAllVisual: () => {
         return api.get('/v2/visual')
     },
+
+    // Dinas
+    getAllDinas: () => {
+        return api.get('/v2/dinas')
+    },
 }
 
 export default API;

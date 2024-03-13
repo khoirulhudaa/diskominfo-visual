@@ -1,12 +1,23 @@
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import React, { useEffect, useState } from 'react'
-import { SquareLine } from '../Assets'
-import { FaArrowLeft, FaArrowRight, FaSearch } from 'react-icons/fa'
-import API from '../Services'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import { SquareLine } from '../Assets'
+import API from '../Services'
 
 const ListVisual: React.FC = () => {
+
+    const [dinas, setDinas] = useState<any[]>([])
+    const [type_dinas, setType_dinas] = useState<string>('')
+
+    useEffect(() => {
+        (async () => {
+            const response = await API.getAllDinas()
+            console.log(response)
+            setDinas(response?.data?.data)
+        })()
+    }, [])
 
     AOS.init({
         // Global settings:
@@ -89,8 +100,17 @@ const ListVisual: React.FC = () => {
                 }} 
                 className='border-0 outline-0 px-3 py-4 w-[80vw] md:w-[50vw] rounded-[14px] ml-6 md:ml-0 left-0'
             />
-            <div className='w-[54px] h-[54px] ml-6 rounded-full hidden md:flex items-center justify-center cursor-pointer z-[4444] hover:brightness-[90%] active:scale-[0.97] shadow-md bg-white text-slate-700'>
-                <FaSearch />
+            <div className='w-max h-max px-3 py-4 z-[99999] rounded-[10px] bg-white ml-6'>
+                <select name="type_dinas" onChange={(e: any) => setType_dinas(e.target.value)} className='bg-transparent border-0 outline-0' id="type_dinas">
+                    {
+                        dinas.length > 0 ? (
+                            dinas.map((data: any, index: number) => (
+                                <option key={index} value={data?.dinas_name}>{data?.dinas_name}</option>
+                            ))
+                        ):
+                            null
+                    }
+                </select>
             </div>
         </form>
         
@@ -98,9 +118,17 @@ const ListVisual: React.FC = () => {
             {
             filteredData?.length > 0 ? (
                 filteredData
+                    .filter((sub: any) => {
+                        // Jika pencarian tidak kosong, filter data berdasarkan label yang cocok dengan pencarian
+                        if (type_dinas && type_dinas !== '') {
+                            return sub.type_dinas === type_dinas
+                        }
+                        // Jika pencarian kosong, tampilkan semua data
+                        return true;
+                    })
                     ?.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
                     ?.map((data: any, index: number) => (
-                        <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 py-4 md:p-8 border-[2px] border-slate-700 md:border-white rounded-[20px]'>
+                        <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 pt-4 pb-5 md:p-8 border-[2px] border-slate-700 md:border-white rounded-[20px]'>
                             <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
                                 <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
                                 <div className='w-[100%] h-[160px] md:h-[220px] rounded-[10px] bg-slate-600 border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
@@ -110,7 +138,9 @@ const ListVisual: React.FC = () => {
                                     <Link target='__blank' to={data?.link}>
                                         <h3 className='cursor-pointer rounded-[10px] text-[15px] md:text-[18px] w-max px-4 md:px-1 py-2 mb-4 bg-slate-800 md:bg-transparent hover:brightness-[90%] active:scale-[0.99] text-white md:text-blue-400 flex items-center'>Cek sekarang <FaArrowRight className='ml-4 relative top-[0.8]' /> </h3>
                                     </Link>
-                                    <small className='max-w-full md:ml-1 overflow-hidden md:inline hidden overflow-ellipsis whitespace-nowrap'><b>Uploader</b> : {data?.uploader}</small>
+                                    <small className='max-w-full md:ml-1 md:text-white text-black overflow-hidden overflow-ellipsis whitespace-nowrap'><b>{data?.type_dinas}</b></small>
+                                    <hr className='my-4 md:border-white border-slate-700 md:inline hidden' />
+                                    <small className='max-w-full md:ml-1 overflow-hidden overflow-ellipsis md:inline hidden whitespace-nowrap'><b>Uploader</b> : {data?.uploader}</small>
                                 </div>
                             </div>
                         </div>
