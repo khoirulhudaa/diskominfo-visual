@@ -93,11 +93,11 @@ const ListVisual: React.FC = () => {
   return (
     <div id='daftar' className='relative flex flex-col z-[4444] pt-[20px] md:pt-[80px] pb-[0px] w-[100%] h-max md:border-l-[3px] border-white'>
         <img src={SquareLine} alt="3D" className='absolute opacity-[0.3] z-[1] top-[-150px] right-[-420px] scale-[0.5]' />
-        <div className='relative z-[4444] pb-[0px] px-6 md:px-16 w-[100%] mt-[0px] top-[-45px] h-max'>
+        <div className='relative z-[4444] pb-[0px] px-5 md:px-16 w-[100%] mt-[0px] top-[-45px] h-max'>
             <div data-aos='fade-up' className='w-max mb-3 border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
                 Informasi sekilas
             </div>
-            <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-white md:text-blue-500 font-[500]'>Daftar diagram <span className='md:inline hidden'>📊</span></h3>
+            <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Daftar diagram <span className='md:inline hidden text-white'>📊</span></h3>
             <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
         </div>
 
@@ -154,9 +154,9 @@ const ListVisual: React.FC = () => {
                     ?.map((data: any, index: number) => (
                         <div key={index} className='w-[88vw] mx-auto md:mx-3 md:w-[47%] mb-8 md:mb-10 bg-white md:bg-slate-800 h-[max] px-5 pt-4 pb-5 md:p-8 border-[1px] md:border-[2px] border-slate-700 md:border-white rounded-[20px]'>
                             <div className='w-full md:w-[90%] h-max relative flex flex-col justify-between text-[20px] leading-loose text-white'>
-                                <h3 className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
+                                <h3 title={data?.title} className='w-full md:w-[110%] text-[16px] md:text-[18px] text-slate-700 md:text-white overflow-hidden overflow-ellipsis max-w-[95%] whitespace-nowrap'>{data?.title}</h3>
                                 <div className='w-[100%] h-[140px] md:h-[220px] rounded-[10px] bg-white border-[1px] md:border-[3px] border-slate-800 md:border-white mt-5 overflow-hidden flex justify-center items-center'>
-                                    <img src={data?.image} loading='lazy' alt="thumbnail" className='w-full h-auto rounded-[10px]' />
+                                    <img src={data?.image} loading='lazy' alt="thumbnail" title={data?.title} className='w-full h-auto rounded-[10px]' />
                                 </div>
                                 <div className='w-full flex flex-col mt-6 justify-between'>
                                     <Link target='__blank' to={data?.link}>

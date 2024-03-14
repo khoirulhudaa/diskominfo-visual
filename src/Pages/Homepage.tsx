@@ -117,7 +117,7 @@ const Homepage: React.FC = () => {
         <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-600 blur-[220px] rounded-full fixed z-[999999999999] top-[0px] left-0'></div>
         {/* Akhir Blur light */}
        
-        <div id='home' className='relative z-[4444] pl-6 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] mt-[120px] md:mt-[90px] md:pt-16 border-white'>
+        <div id='home' className='relative z-[4444] pl-5 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] mt-[120px] md:mt-[90px] md:pt-16 border-white'>
           
           <img src={Chart1} alt="3D" className='absolute hidden md:inline opacity-[0.3] z-[1] top-[-130px] right-[-50px] scale-[0.7]' />
           <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[1] z-[1] top-[-110px] right-[25px] scale-[0.4]' />
@@ -125,15 +125,20 @@ const Homepage: React.FC = () => {
           <img src={Chart3} alt="3D" className='absolute hidden md:inline opacity-[0.9] z-[1] bottom-[-100px] right-[150px] scale-[0.4]' />
           <img src={Chart4} alt="3D" className='absolute hidden md:inline opacity-[0.5] z-[1] bottom-[-100px] right-[-50px] scale-[0.4]' />
           
-          <div className='absolute top-[-70px] right-0'>
-            <img loading='lazy' src={Square} alt="square" className='absolute w-[100%] top-[0px] left-[-404px] rotate-[0deg]' />
+          <div className='absolute top-[-70px] right-[40px] md:right-0'>
+            <img loading='lazy' src={Square} alt="square" className='absolute w-[100%] nd:top-[0px] top-[-190px] left-[80px] md:left-[-404px] rotate-[0deg]' />
             <img loading='lazy' src={Square} alt="square" className='w-[100%] rotate-[180deg]' />
           </div>
 
-          <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>Visualisasi 2024</p>
-          <h1 data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-white'>Open Data Cirebon  <span className='md:hidden inline'>2024</span> : <span className='md:flex hidden'>Visualisasi Data</span> <span className='md:hidden flex'>Data Visual</span></h1>
+          <div className='w-max md:flex items-center mb-6'>
+            <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>#Visualisasi2024📊</p>
+            <p data-aos='fade-up' className='rounded-full border ml-6 border-white mt-4 text-center px-5 py-2 w-max text-white hidden md:flex items-center'>#SatuDataIndonesia🇮🇩</p>
+          </div>
+          <h1 data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white'>Open Data Cirebon  <span className='md:hidden inline'>2024</span> : <span className='md:flex hidden'>Visualisasi Data</span> <span className='md:hidden flex'>Data Visual</span></h1>
           <div data-aos='fade-up' data-aos-duration="2000" className='w-[80vw] md:w-max flex items-center overflow-hidden rounded-[20px]'>
-            <button className='outline-0 border-white border-0 py-5 w-max rounded-[16px] px-12 md:px-28 h-max text-left font-normal bg-[#1976D2] my-7 text-white'>Cari data sekarang</button>
+            <a href='#daftar'>
+              <button className='outline-0 border-white border-0 py-5 w-max rounded-[16px] px-12 md:px-28 active:scale-[0.98] hover:brightness-[90%] h-max text-left font-normal bg-[#1976D2] my-7 text-white'>Cari data sekarang</button>
+            </a>
           </div>
         </div>
 
@@ -148,7 +153,7 @@ const Homepage: React.FC = () => {
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
               Informasi pendataan
             </div>
-            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon 🤓</h3>
+            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon <span className='text-white'>🤓</span></h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
             <div onClick={() => window.location.href = 'https://opendata.cirebonkab.go.id'  } className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
               Kunjungi sekarang 👉
@@ -165,7 +170,7 @@ const Homepage: React.FC = () => {
             <div data-aos='fade-up' className='w-max mb-7 mt-[-30px] border border-white rounded-full text-white flex items-center text-center px-5 py-2'>
               Informasi geospasial
             </div>
-            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-white md:text-blue-400 font-[500]'>Informasi geospasial dalam bentuk GIS 🗺️</h3>
+            <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Informasi geospasial dalam bentuk GIS <span className='text-white'>🗺️</span></h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
             <div onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
               Kunjungi sekarang 👉
