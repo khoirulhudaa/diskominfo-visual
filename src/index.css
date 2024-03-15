@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --dark-color: #004fb6;
+}
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -19,4 +22,29 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+#btn-card-destination::before {
+  position: absolute;
+  content: '';
+  width: 110%;
+  height: 120%;
+  border-radius: 2px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  background-color: var(--dark-color);
+  transition: transform 0.4s;
+  display: block;
+  transform: scaleX(0) skew(-50deg);
+  transform-origin: right;
+}
+
+#btn-card-destination:hover {
+  color: white;
+}
+
+#btn-card-destination:hover::before {
+  transform: scaleX(1) skew(-50deg);
+  transform-origin: left;
 }

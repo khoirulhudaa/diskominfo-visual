@@ -36,6 +36,33 @@ const Homepage: React.FC = () => {
 
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeSidebar, setActiveSidebar] = useState<boolean>(false);
+  const texts = ['Data', 'Diagram', '2024'];
+  const [displayedText, setDisplayedText] = useState(texts[0]);
+  const [textIndex, setTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const textToDisplay = texts[textIndex];
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      if (currentIndex < textToDisplay.length) {
+        setDisplayedText(textToDisplay.substring(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [textIndex]);
 
   useEffect(() => {
       const handleScroll = () => {
@@ -62,19 +89,19 @@ const Homepage: React.FC = () => {
         <div className={`fixed ${activeSidebar ? 'left-0' : 'left-[-100%]'} duration-200 top- w-[80vw] mt-14 z-[44444] md:hidden overflow-hidden h-screen bg-white px-3 py-12 border-r-[2px] border-white`}>
           <ul className='w-full flex flex-col'>
               <a href="#home" onClick={() => handleSelectSidebar()}>
-                <li className='border-b border-slate-700 pb-8 w-[100%] hover:text-blue-400 cursor-pointer'>Halaman utama</li>
+                <li className='border-b border-slate-700 pb-8 w-[100%] hover:text-blue-400 cursor-pointer'>Halaman Utama</li>
               </a>
               <a href="#daftar" onClick={() => handleSelectSidebar()}>
-                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Daftar diagram</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Daftar Diagram</li>
               </a>
               <a href="#opendata" onClick={() => handleSelectSidebar()}>
-                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Open Data Cirebon</li>
               </a>
               <a href="#geoportal" onClick={() => handleSelectSidebar()}>
                 <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Geoportal</li>
               </a>
               <a href="#footer" onClick={() => handleSelectSidebar()}>
-                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
+                <li className='border-b border-slate-700 py-8 w-[100%] hover:text-blue-400 cursor-pointer'>Kontak Dinas</li>
               </a>
             </ul>  
         </div>
@@ -93,19 +120,19 @@ const Homepage: React.FC = () => {
           <div className='w-full text-slate-300 py-5 hidden md:flex md:pl-[150px] h-[60px]'>
             <ul className='w-max flex items-center justify-between'>
               <a href="#home">
-                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Halaman utama</li>
+                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Halaman Utama</li>
               </a>
               <a href="#daftar">
-                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Daftar diagram</li>
+                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Daftar Diagram</li>
               </a>
               <a href="#opendata">
-                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Open data cirebon</li>
+                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Open Data Cirebon</li>
               </a>
               <a href="#geoportal">
                 <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Geoportal</li>
               </a>
               <a href="#footer">
-                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Kontak dinas</li>
+                <li className='mr-3 md:mr-16 hover:text-blue-400 cursor-pointer'>Kontak Dinas</li>
               </a>
             </ul>
           </div>
@@ -113,8 +140,8 @@ const Homepage: React.FC = () => {
         {/* Akhir navbar */}
        
         {/* Blur light */}
-        <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-600 blur-[220px] rounded-full fixed z-[999999999999] top-[0px] right-0'></div>
-        <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-600 blur-[220px] rounded-full fixed z-[999999999999] top-[0px] left-0'></div>
+        <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-800 blur-[160px] rounded-full fixed z-[999999999999] top-[0px] right-0'></div>
+        <div className='w-[100px] h-[1200px] hidden md:inline bg-blue-800 blur-[160px] rounded-full fixed z-[999999999999] top-[0px] left-0'></div>
         {/* Akhir Blur light */}
        
         <div id='home' className='relative z-[4444] pl-5 md:px-16 md:pb-[80px] w-[100%] h-max md:border-l-[3px] mt-[120px] md:mt-[90px] md:pt-16 border-white'>
@@ -134,10 +161,10 @@ const Homepage: React.FC = () => {
             <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>#Visualisasi2024📊</p>
             <p data-aos='fade-up' className='rounded-full border ml-6 border-white mt-4 text-center px-5 py-2 w-max text-white hidden md:flex items-center'>#SatuDataIndonesia🇮🇩</p>
           </div>
-          <h1 data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white'>Open Data Cirebon  <span className='md:hidden inline'>2024</span> : <span className='md:flex hidden'>Visualisasi Data</span> <span className='md:hidden flex'>Data Visual</span></h1>
+          <h1 id='title-hero-bmw' data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white'>Open Data Cirebon <span className='md:hidden inline'>2024</span> : <span className='flex'>Visual<span className='md:flex hidden'>isasi</span> {displayedText}</span></h1>
           <div data-aos='fade-up' data-aos-duration="2000" className='w-[80vw] md:w-max flex items-center overflow-hidden rounded-[20px]'>
             <a href='#daftar'>
-              <button className='outline-0 border-white border-0 py-5 w-max rounded-[16px] px-12 md:px-28 active:scale-[0.98] hover:brightness-[90%] h-max text-left font-normal bg-[#1976D2] my-7 text-white'>Cari data sekarang</button>
+              <button id="btn-card-destination" className='relative overflow-hidden outline-0 py-5 w-max border-[2px] border-white rounded-[16px] px-12 md:px-28 active:scale-[0.98] hover:brightness-[120%] h-max text-left font-normal bg-[#1976D2] duration-200 my-7 text-white'>Cari data sekarang</button>
             </a>
           </div>
         </div>
@@ -155,7 +182,7 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon <span className='text-white'>🤓</span></h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
-            <div onClick={() => window.location.href = 'https://opendata.cirebonkab.go.id'  } className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+            <div id='btn-card-destination' onClick={() => window.location.href = 'https://opendata.cirebonkab.go.id'  } className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
               Kunjungi sekarang 👉
             </div>
           </div>
@@ -172,7 +199,7 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Informasi geospasial dalam bentuk GIS <span className='text-white'>🗺️</span></h3>
             <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
-            <div onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center'>
+            <div id='btn-card-destination' onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
               Kunjungi sekarang 👉
             </div>
           </div>
