@@ -36,11 +36,15 @@ const Homepage: React.FC = () => {
 
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeSidebar, setActiveSidebar] = useState<boolean>(false);
-  const texts = ['Data', 'Diagram', '2024'];
+  const currentYearNow: any = new Date().getFullYear();
+  const texts = ['Data', 'Diagram', `${currentYearNow}`];
   const [displayedText, setDisplayedText] = useState(texts[0]);
   const [textIndex, setTextIndex] = useState(0);
+  const [currentYear, setCurrentYear] = useState(0);
 
   useEffect(() => {
+    const currentYear: any = new Date().getFullYear();
+    setCurrentYear(currentYear)
     const interval = setInterval(() => {
       setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 3000);
@@ -66,7 +70,7 @@ const Homepage: React.FC = () => {
 
   useEffect(() => {
       const handleScroll = () => {
-          if (window.scrollY >= 60) {
+          if (window.scrollY >= 20) {
               setScrolled(true);
           } else {
               setScrolled(false);
@@ -158,13 +162,13 @@ const Homepage: React.FC = () => {
           </div>
 
           <div className='w-max md:flex items-center mb-6'>
-            <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>#Visualisasi2024📊</p>
+            <p data-aos='fade-up' className='rounded-full border border-white mt-4 text-center px-5 py-2 w-max text-white flex items-center'>#Visualisasi{currentYear}📊</p>
             <p data-aos='fade-up' className='rounded-full border ml-6 border-white mt-4 text-center px-5 py-2 w-max text-white hidden md:flex items-center'>#SatuDataIndonesia🇮🇩</p>
           </div>
           <h1 id='title-hero-bmw' data-aos='fade-up' data-aos-duration="1000" className='mt-4 text-[40px] md:text-[80px] w-[90vw] md:w-[80%] font-normal leading-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white'>Open Data Cirebon <span className='md:hidden inline'>2024</span> : <span className='flex'>Visual<span className='md:flex hidden'>isasi</span> {displayedText}</span></h1>
           <div data-aos='fade-up' data-aos-duration="2000" className='w-[80vw] md:w-max flex items-center overflow-hidden rounded-[20px]'>
             <a href='#daftar'>
-              <button id="btn-card-destination" className='relative overflow-hidden outline-0 py-5 w-max border-[2px] border-white rounded-[16px] px-12 md:px-28 active:scale-[0.98] hover:brightness-[120%] h-max text-left font-normal bg-[#1976D2] duration-200 my-7 text-white'>Cari data sekarang</button>
+              <button id="btn-card-destination" className='relative overflow-hidden outline-0 py-5 w-max border-[2px] border-white rounded-[16px] px-12 md:px-28 active:scale-[0.98] hover:brightness-[120%] h-max text-left font-normal bg-[#1976D2] duration-200 my-7 text-white'>Cari data sekarang 👉</button>
             </a>
           </div>
         </div>
@@ -181,7 +185,7 @@ const Homepage: React.FC = () => {
               Informasi pendataan
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Open Data : Informasi Seputar Kabupaten Cirebon <span className='text-white'>🤓</span></h3>
-            <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
+            <p data-aos='fade-up' data-aos-duration="1000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Di sini Anda bisa akses koleksi data terbuka Kabupaten Cirebon dengan cepat, mudah dan akurat</p>
             <div id='btn-card-destination' onClick={() => window.location.href = 'https://opendata.cirebonkab.go.id'  } className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
               Kunjungi sekarang 👉
             </div>
@@ -198,7 +202,7 @@ const Homepage: React.FC = () => {
               Informasi geospasial
             </div>
             <h3 data-aos='fade-up' data-aos-duration="1000" className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Informasi geospasial dalam bentuk GIS <span className='text-white'>🗺️</span></h3>
-            <p data-aos='fade-up' data-aos-duration="2000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
+            <p data-aos='fade-up' data-aos-duration="1000" className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
             <div id='btn-card-destination' onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
               Kunjungi sekarang 👉
             </div>

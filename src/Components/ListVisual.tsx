@@ -98,7 +98,7 @@ const ListVisual: React.FC = () => {
                 Informasi sekilas
             </div>
             <h3 data-aos='fade-up' data-aos-duration='1000' className='text-[32px] md:text-[70px] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Daftar diagram <span className='md:inline hidden text-white'>📊</span></h3>
-            <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi secara mudah by <span className='text-blue-500 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
+            <h2 data-aos='fade-up' data-aos-duration='2000' className='text-[20px] md:text-[30px] text-white w-max hidden md:flex items-center'>Temukan informasi data visual <span className='text-blue-400 ml-3 flex items-center'>diskominfo cirebon.</span></h2>
         </div>
 
         <form className='md:ml-16 mt-[-20px] md:mt-12 md:flex items-center'>
