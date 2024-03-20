@@ -201,7 +201,7 @@ const Homepage: React.FC = () => {
             </div>
             <h3 data-aos='fade-up' className='text-[26px] md:text-[60px] w-full md:w-[80%] text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-white font-[500]'>Informasi geospasial dalam bentuk GIS <span className='text-white'>🗺️</span></h3>
             <p className='text-[24px] text-white md:w-[70%] mt-8 hidden md:flex items-center'>Geoportal Kota Cirebon merupakan salah satu simpul Jaringan Informasi Geospasial Nasional (JIGN).</p>
-            <div id='btn-card-destination' onClick={() => window.location.href = 'http://cirebonkota.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
+            <div id='btn-card-destination' onClick={() => window.location.href = 'http://cirebonkab.ina-sdi.or.id'} className='px-6 md:px-12 py-2 md:py-3 bg-white text-slate-700 w-max shadow-lg rounded-full cursor-pointer hover:brightness-[90%] active:scale-[0.98] mt-7 md:mt-10 flex items-center justify-center relative overflow-hidden duration-200'>
               Kunjungi sekarang 👉
             </div>
           </div>
